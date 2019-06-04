@@ -1,23 +1,40 @@
 .app {
-  align-content: center;
+    align-content: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 h1 {
-  text-align: center;
+    display: block;
+    text-align: center;
 }
 
 .dice {
-  margin: 0.5rem 1rem 0em 1rem;
+    margin: 0.5em 0em;
 }
 
 .dice input {
-  width: 3rem;
+    width: 2rem;
+}
+
+.dice button {
+    margin-left: 0.2rem;
 }
 
 .history {
-  border: solid 2px red;
+    border: solid 2px #cccccc;
+    border-radius: 3px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding-left: 1rem;
+    flex-basis: 500px;
+    margin-right: 1rem;
 }
 
 .diceContainer {
-  border: solid 2px greenyellow;
+    padding: 1rem;
 }
