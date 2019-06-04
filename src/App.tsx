@@ -10,6 +10,7 @@ function randomInt(min: number, max: number) {
 
 const App: React.FC = () => {
     const [history, setHistory] = useState<string>('');
+    const dice: number[] = [4, 6, 8, 10, 12, 20, 100];
 
     function roll(count: number, sides: number, modifier: number) {
         let time: string = new Date().toLocaleTimeString('sw');
@@ -24,7 +25,7 @@ const App: React.FC = () => {
         let lastRandom: number = randomInt(1, sides);
         sum += lastRandom;
         let modifierString: string = '';
-        if (modifier != 0) {
+        if (modifier !== 0) {
             modifierString = ' + (' + modifier + ')';
         }
         // append last roll, modifier and roll result
@@ -32,21 +33,18 @@ const App: React.FC = () => {
         setHistory(result.concat(history));
     }
 
+    function addDice(dice: number[]) {
+        return dice.map(die => (<Dice sides={die} roll={roll} />))
+    }
+
     return (
         <div className="app">
             <h1>RPG Dice Roller</h1>
             <div className="box">
                 <div className="diceContainer">
-                    <Dice count={1} sides={4} roll={roll} />
-                    <Dice count={1} sides={6} roll={roll} />
-                    <Dice count={1} sides={8} roll={roll} />
-                    <Dice count={1} sides={10} roll={roll} />
-                    <Dice count={1} sides={12} roll={roll} />
-                    <Dice count={1} sides={20} roll={roll} />
-                    <Dice count={1} sides={100} roll={roll} />
+                    {addDice(dice)}
                 </div>
                 <History content={history} />
-
             </div>
         </div>
     )

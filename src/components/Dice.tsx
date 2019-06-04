@@ -2,14 +2,14 @@ import * as React from 'react'
 import { useState } from 'react'
 
 interface IDiceProps {
-    count: number,
     sides: number,
+    count?: number,
     modifier?: number,
     roll: (count: number, sides: number, modifier: number) => any
 }
 
 const Dice: React.SFC<IDiceProps> = props => {
-    const [count, setCount] = useState<number>(props.count);
+    const [count, setCount] = useState<number>(props.count ? props.count : 1);
     const [modifier, setModifier] = useState<number>(props.modifier ? props.modifier : 0);
 
     const changeCount = (event: React.ChangeEvent<HTMLInputElement>) => {
