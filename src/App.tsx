@@ -11,10 +11,10 @@ function randomInt(min: number, max: number) {
 const App: React.FC = () => {
     const [history, setHistory] = useState<string>('');
 
-    function roll(count: number, sides: number) {
+    function roll(count: number, sides: number, modifier: number) {
         let time: string = new Date().toLocaleTimeString('sw');
         let result: string = `[${time}] ${count}d${sides}: `;
-        let sum: number = 0;
+        let sum: number = modifier;
         // calculate individual rolls
         for (let i = 0; i < count - 1; i++) {
             let rand: number = randomInt(1, sides);
@@ -23,8 +23,12 @@ const App: React.FC = () => {
         }
         let lastRandom: number = randomInt(1, sides);
         sum += lastRandom;
-        // add last roll without plus sign and append roll result
-        result += + ' ' + lastRandom + ' = ' + sum + '\n';
+        let modifierString: string = '';
+        if (modifier != 0) {
+            modifierString = ' + (' + modifier + ')';
+        }
+        // append last roll, modifier and roll result
+        result += + ' ' + lastRandom + modifierString + ' = ' + sum + '\n';
         setHistory(result.concat(history));
     }
 
