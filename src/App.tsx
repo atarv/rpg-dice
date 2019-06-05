@@ -14,22 +14,29 @@ const App: React.FC = () => {
 
     function roll(count: number, sides: number, modifier: number) {
         let time: string = new Date().toLocaleTimeString('sw');
-        let result: string = `[${time}] ${count}d${sides}: `;
-        let sum: number = modifier;
-        // calculate individual rolls
-        for (let i = 0; i < count - 1; i++) {
-            let rand: number = randomInt(1, sides);
-            sum += rand;
-            result += rand + ' + ';
-        }
-        let lastRandom: number = randomInt(1, sides);
-        sum += lastRandom;
+        let modWithoutParens: string = '';
         let modifierString: string = '';
         if (modifier !== 0) {
             modifierString = ' + (' + modifier + ')';
+            modWithoutParens = modifier > 0 ? '+' + modifier : modifier.toString();
         }
-        // append last roll, modifier and roll result
-        result += + ' ' + lastRandom + modifierString + ' = ' + sum + '\n';
+
+        let result: string = `[${time}] ${count}d${sides}${modWithoutParens}: `;
+        let firstDie: number = randomInt(1, sides);
+        let sum: number = firstDie + modifier;
+        result += firstDie;
+        // calculate individual rolls
+        for (let i = 1; i < count; i++) {
+            let rand: number = randomInt(1, sides);
+            sum += rand;
+            result += ' + ' + rand;
+        }
+        if (count === 1 && modifier === 0) {
+            result += '\n';
+        }
+        else {
+            result += modifierString + ' = ' + sum + '\n';
+        }
         setHistory(result.concat(history));
     }
 
