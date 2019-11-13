@@ -4,11 +4,11 @@ interface IHistoryProps {
     content: string
 }
 
-const History: React.FunctionComponent<IHistoryProps> = props => {
+const History: React.FunctionComponent<IHistoryProps> = ({content}) => {
     return (
         <div className="history">
             <pre>
-                {props.content}
+                {content}
             </pre>
         </div>
     )
