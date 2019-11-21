@@ -9,8 +9,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Test and build
+    - name: Test
       run: |
         npm install
-        npm test -- --forceExit
-        npm run-script build
+        npm test
+      env:
+        CI: true
+    - name: Build
+      run: npm run-script build
