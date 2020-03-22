@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rpg-dice/static/css/main.8c2366ba.chunk.css",
+    "main.js": "/rpg-dice/static/js/main.8d9373e9.chunk.js",
+    "main.js.map": "/rpg-dice/static/js/main.8d9373e9.chunk.js.map",
+    "runtime~main.js": "/rpg-dice/static/js/runtime~main.301f3d4c.js",
+    "runtime~main.js.map": "/rpg-dice/static/js/runtime~main.301f3d4c.js.map",
+    "static/js/2.1fdc582c.chunk.js": "/rpg-dice/static/js/2.1fdc582c.chunk.js",
+    "static/js/2.1fdc582c.chunk.js.map": "/rpg-dice/static/js/2.1fdc582c.chunk.js.map",
+    "index.html": "/rpg-dice/index.html",
+    "precache-manifest.3121cfc20ff8f5ec0e74f823f0357097.js": "/rpg-dice/precache-manifest.3121cfc20ff8f5ec0e74f823f0357097.js",
+    "service-worker.js": "/rpg-dice/service-worker.js",
+    "static/css/main.8c2366ba.chunk.css.map": "/rpg-dice/static/css/main.8c2366ba.chunk.css.map"
+  }
+}
